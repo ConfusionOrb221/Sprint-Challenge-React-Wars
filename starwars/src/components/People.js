@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
+import Character from './Character';
 
 
 const People = () =>{
     const [starWars, setStarWars] = useState();
     const [loading, setLoading] = useState(true);
+    const [input, setInput] = useState('');
+    
 
   useEffect(() => {
     getData();
@@ -25,43 +28,42 @@ const People = () =>{
     flex-wrap: wrap;
     justify-content: space-evenly;
   `;
-  const Character = styled.div`
-    width: 300px;
-    background-color: rgba(200,140,200,1);
-    margin: 0 0 20px 0; 
-  `;
   const Load = styled.div`
     text-align:center;
     font-size: 4.0rem;
   `;
-  const Name = styled.h1`
+  const FormArea = styled.div`
 
   `;
-  const Gender = styled.h3`
 
-  `;
-  const Eyes = styled.h3`
-
-  `;
-  const Height = styled.h3`
-
-  `;
+  function updateInput(e){
+      e.preventDefault();
+      setInput(e.target.value);
+  }
 
   return(
-    <Characters>
-        {loading ? <Load> ...Loading </Load> : 
-            starWars.map(i => (
-                <>
-                    <Character>
-                        <Name> {i.name} </Name>
-                        <Gender> Gender : {i.gender} </Gender>
-                        <Eyes> Eye Color : {i.eye_color} </Eyes>
-                        <Height> Height :  {i.height}cm </Height>             
-                    </Character>
-                </>
-            ))
-        }
-    </Characters>
+    <>
+        <FormArea>
+            <form onSubmit= {e=> {e.preventDefault()}}>
+                <input
+                type="text"
+                key="search"
+                className="input"
+                id="addInput"
+                value = {input}
+                onChange = {e=> {updateInput(e)}}
+                autoFocus
+                />
+            </form>
+        </FormArea>
+        <Characters>
+            {loading ? <Load> ...Loading </Load> : 
+                starWars.map(i => (
+                    <Character props={i} input={input} />
+                ))
+            }
+        </Characters>
+    </>
   )
 }
 
