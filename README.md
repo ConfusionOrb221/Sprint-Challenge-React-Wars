@@ -25,15 +25,16 @@ In this challenge, create a web page that presents a styled list of Star Wars ch
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
-
+    React is a javascript library used primirily to create interactive websites or "webapps".
+    People use it because it solves the issue of websites being responsive by implementing all the html in to the javascript it makes the website easier to change. Instead of having to call javascript functions that get the node tree everytime we want to change an object we can just edit the tree directly in react.
 - [ ] What does it mean to _think_ in react?
-
+    Thinking in react means to divide ur web application up into its key components in react one of its strongest capabilities is the component nature which allows the user to section up the app into seperate files. This allows for easier debugging of code and a step by step process of how to create applications.
 - [ ] Describe state.
-
+    State is the current render of whats on screen to set the state of something would be to set the display of whats on screen for example if we have a <div> with a counter variable ie 0 for now and we update that to 1 react will render that as a new state of the div. This is what allows react to dynamically update state without constantly refreshing.
 - [ ] Describe props.
-
+    Props are just what variables u pass to a component.
 - [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
-
+    Side effect are anything that gets effected outside of the scope of the function being executed. The useEffect hook will sync the state/prop in a component. 
 ## Project Set Up
 
 Follow these steps to set up and work on your project:
